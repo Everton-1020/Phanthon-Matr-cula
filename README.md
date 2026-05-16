@@ -99,3 +99,6 @@ As cores principais podem ser alteradas nas variáveis:
 
 BG = "#0D2344"
 FG = "white"
+
+Github dos Participantes:
+https://github.com/Gablokis
