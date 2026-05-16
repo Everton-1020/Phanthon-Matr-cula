@@ -102,3 +102,5 @@ FG = "white"
 
 Github dos Participantes:
 https://github.com/Gablokis
+https://github.com/Gustavosouza762
+https://github.com/gabrielsantosssssz
