@@ -1,64 +1,101 @@
 Phantom Matrículas
-Sistema Acadêmico de Gerenciamento de Matrículas
 
-1. Introdução
+Sistema acadêmico desktop desenvolvido em Python utilizando Tkinter para interface gráfica e MongoDB Atlas como banco de dados.
+O sistema permite gerenciamento de alunos, turmas e solicitações acadêmicas de forma simples e intuitiva.
 
-O Phantom Matrículas é um sistema desktop desenvolvido em Python com o objetivo de realizar o gerenciamento acadêmico de alunos, turmas e solicitações administrativas. O sistema foi construído utilizando a biblioteca Tkinter para a interface gráfica e MongoDB Atlas como banco de dados NoSQL para persistência das informações.
+Funcionalidades
+Área do Aluno:
+Login utilizando RGM
+Solicitação de troca de turma
+Solicitação de remoção de turma
+Solicitação de bolsa
+Solicitação de troca de nome
+Visualização da turma atual
 
-A aplicação permite que alunos realizem solicitações acadêmicas, enquanto coordenadores possuem acesso administrativo para gerenciamento das informações cadastradas.
+Área do Coordenador:
+Cadastro de alunos
+Listagem completa de alunos
+Atribuição de turmas
+Remoção de alunos das turmas
+Aprovação e recusa de solicitações
+Controle de bolsistas
 
-2. Objetivos do Projeto
+Interface
 
-Objetivo Geral
+O sistema possui:
 
-Desenvolver uma aplicação desktop capaz de realizar o gerenciamento acadêmico de alunos e solicitações administrativas de maneira simples e intuitiva.
+Interface gráfica moderna com Tkinter
+Componentes reutilizáveis
+Placeholders nos campos
+Botões estilizados
+Sistema de navegação entre telas
+Responsividade básica para desktop
 
-Objetivos Específicos
-Realizar cadastro de alunos;
-Gerenciar turmas acadêmicas;
-Permitir solicitações realizadas pelos alunos;
-Utilizar persistência de dados em banco NoSQL;
-Aplicar conceitos de interface gráfica em Python.
+Tecnologias Utilizadas:
+Python 3
+Tkinter
+Pillow (PIL)
+MongoDB Atlas
+PyMongo
 
-3. Arquitetura do Sistema
+Instalação
+1️. Clone o repositório
+git clone https://github.com/seu-usuario/phantom-matriculas.git
+2️. Acesse a pasta do projeto
+cd phantom-matriculas
+3️. Instale as dependências
+pip install pymongo pillow
 
-O sistema foi desenvolvido seguindo uma estrutura funcional baseada em separação lógica de responsabilidades.
+Configuração do MongoDB:
 
-A aplicação é composta por:
+No código existe a conexão com o MongoDB Atlas:
 
-Camada	                Responsabilidade
+client = MongoClient("SUA_STRING_DE_CONEXAO")
 
-Interface gráfica	Interação com usuário
-Regras de negócio	Validações e operações
-Persistência	        Comunicação com MongoDB
+Substitua pela sua própria string de conexão do MongoDB Atlas.
 
-4. Tecnologias Utilizadas
+Executando o Sistema:
 
-Tecnologia	Finalidade
+python main.py
+Estrutura do Projeto
+phantom-matriculas/
+│
+├── main.py
+├── phantom.png
+├── README.md
+Estrutura do Banco de Dados
+Coleção: alunos
 
-Python	        Linguagem principal
-Tkinter	        Interface gráfica
-Pillow	        Manipulação de imagens
-PyMongo	        Integração com MongoDB
-MongoDB Atlas	Banco de dados em nuvem
+Exemplo de documento:
 
-5.Estrutura Funcional do Sistema
+{
+  "nome": "João Silva",
+  "rgm": "12345678",
+  "curso": "ADS",
+  "horario": "Noite",
+  "bolsista": false,
+  "turma": "A",
+  "trocas_nome": 0
+}
+Coleção: solicitacoes
 
-Área do Aluno
+Exemplo de documento:
 
-O aluno pode:
+{
+  "rgm": "12345678",
+  "tipo": "troca_turma",
+  "valor": "B"
+}
 
-Solicitar troca de turma;
-Solicitar remoção de turma;
-Solicitar bolsa;
-Solicitar alteração de nome.
+Regras de Negócio:
+O RGM deve possuir exatamente 8 dígitos
+Não é permitido cadastrar RGMs duplicados
+O aluno pode trocar de nome apenas 1 vez
+Solicitações precisam ser aprovadas pelo coordenador
 
-Área do Coordenador
+Personalização:
 
-O coordenador pode:
+As cores principais podem ser alteradas nas variáveis:
 
-Cadastrar alunos;
-Visualizar listagem de alunos;
-Atribuir turmas;
-Remover alunos das turmas;
-Aprovar ou recusar solicitações.
+BG = "#0D2344"
+FG = "white"
